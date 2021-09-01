@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --aot --prod",
+    "build": "ng build --prod",
     "test": "jest",
     "test-watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -97,5 +97,8 @@
     "avs",
     "payment"
   ],
-  "author": "Stephen Petieu"
+  "author": "Stephen Petieu",
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  }
 }
