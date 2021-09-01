@@ -10,8 +10,7 @@
     "test:coverage": "jest --coverage",
     "sonar": "sonar-scanner",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --configuration production"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
