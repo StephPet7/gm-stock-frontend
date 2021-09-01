@@ -1,0 +1,18 @@
+<mat-drawer-container (backdropClick)="onBackdropClick()" autosize>
+    <mat-drawer class="drawer-content" [mode]="mode" [autoFocus]='false' [opened]="isOpen?'':null" >
+        <perfect-scrollbar>
+            <app-sidebar (menuSelect)="onMenuSelect()"></app-sidebar>
+        </perfect-scrollbar>
+    </mat-drawer>
+    <mat-drawer-content class="drawer-main-content" [ngClass]="{'w-100':!isOpen}">
+        <app-navbar></app-navbar>
+            <div class="main-section">
+                <perfect-scrollbar>
+                <div class="main-content">
+                    <router-outlet></router-outlet>
+                </div>
+                <app-footer></app-footer>
+            </perfect-scrollbar>
+            </div>
+    </mat-drawer-content>
+</mat-drawer-container>

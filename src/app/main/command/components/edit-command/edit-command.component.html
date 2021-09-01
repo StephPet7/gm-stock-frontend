@@ -1,0 +1,107 @@
+<mat-card>
+  <mat-card-header class="justify-content-center">
+    <mat-card-title>Enregistrer une commande</mat-card-title>
+  </mat-card-header>
+
+  <div>
+    <form [formGroup]="commandForm" (ngSubmit)="onSubmit()">
+      <div class="offset-1 col-10">
+        <div class="row justify-content-center">
+          <mat-form-field class="col-sm-8">
+            <mat-label>Libellé: </mat-label>
+            <input matInput type="text" formControlName="title">
+            <mat-error>Libellé de la commande</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-5">
+            <button class="button_margin_top" type="button" mat-raised-button color="primary" (click)="addCommandLine()">
+              <mat-icon>add</mat-icon>
+              <span>Ajouter une entrée</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-12" formArrayName="commandLine" *ngFor="let line of getCommandLineFormGroup(); let i = index">
+            <mat-card>
+              <div [formGroup]="line" class="col-12 justify-content-center align-items-center">
+                <div class="row">
+                  <div class="col-10 offset-1">
+                    <mat-radio-group>
+                      <mat-radio-button value='SELECT'
+                                        class="offset-1"
+                                        (input)="productActions[i]='SELECT'"
+                                        [checked]="productActions[i]==='SELECT'">Sélectionner un Produit</mat-radio-button>
+                      <mat-radio-button value='CREATE'
+                                        class="offset-1"
+                                        (input)="onNewProduct(i)">Créer un Produit</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                </div>
+
+                <div *ngIf="productActions[i]==='SELECT'" class="row">
+                  <div class="col-11 offset-1 col-sm-3">
+                    <mat-form-field appearance="standard" class="input_field_width_control">
+                      <mat-label>Produit: </mat-label>
+                      <mat-select formControlName="product">
+                        <mat-option *ngFor="let p of productsToSelect" [value]="p.name">
+                          {{p.name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div *ngIf="productActions[i]==='CREATE'" class="row">
+                  <div class="col-11 offset-1 col-sm-5">
+                    <mat-label>Produit: </mat-label>
+                    <span>{{line.value.product}}</span>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="offset-1 col-6">
+                    <mat-form-field appearance="standard">
+                      <mat-label>Quantité: </mat-label>
+                      <input matInput type="number" min="0" formControlName="quantityOrdered">
+                      <mat-error>La quantité est requise</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row pt-4">
+                  <div class="col-12 text-right">
+                    <button mat-raised-button
+                            color="warn"
+                            type="button"
+                            class="button_margin_top mr-2"
+                            (click)="removeCommandLine(i)">
+                      <mat-icon>remove</mat-icon>
+                      <span>Supprimer l'entrée</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <p *ngIf="productDuplication" class="col-12 text-right">Un nom de produit est dupliqué parmi les entrées</p>
+        </div>
+        <div class="row pt-4">
+          <div class="col-sm-12 col-12 text-sm-right">
+            <button mat-raised-button color="accent" type="reset"
+                    class="button_margin_top mr-sm-2 mr-1">Reset</button>
+            <button mat-raised-button color="warn" type="button"
+                    class="button_margin_top mr-sm-2 mr-1">Cancel</button>
+            <button mat-raised-button color="primary" type="submit"
+                    class="button_margin_top" [disabled]="commandForm.invalid">Enregistrer</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</mat-card>

@@ -1,0 +1,87 @@
+@import '../../assets/css/variables';
+.full-width{
+  min-height: 100vh;
+}
+
+.main-section{
+  height: calc(100vh - 64px);
+  position: relative;
+}
+
+.main-content{
+  padding: 30px 30px 80px;
+  min-height: calc(100vh - 81px - 64px)
+}
+
+.drawer-content{
+  position: fixed;
+  width: 250px;
+}
+
+.drawer-main-content{
+  width: calc(100vw - 250px);
+}
+
+@media only screen and (max-width : $sm){
+  .main-content{
+    padding: 20px 20px 130px;
+  }
+}
+@media only screen and (max-width : $lg){
+  .drawer-main-content{
+    width: 100%;
+  }
+}
+
+// Table properties
+table{
+  width: 100%;
+}
+
+th {
+  color: white;
+  background-color: #5d6fd3;
+  font-size: 115%;
+}
+
+td, th {
+  border: 1px solid #c7c4c4;
+  text-align: center;
+}
+
+td {
+  font-family: "Barlow SemiBold", serif;
+  font-size: 105%;
+}
+
+td > button {
+  width: 3%;
+}
+
+.detailed-row:hover {
+  transform: scale(1.01);
+  background-color: #dbdbdb;
+}
+
+.text-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-card-title {
+  color: #3549bb;
+}
+
+.row-color{
+  background-color: #f18888;
+  color: white;
+}
+
+.row-color:hover {
+  background-color: #f18888;
+  color: white;
+}
+
+.row-color > td {
+  color: white;
+}

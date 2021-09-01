@@ -1,0 +1,53 @@
+@import "src/app/main/main.component";
+
+
+.main-content {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  padding:1% 2% 3% 2%;
+  border-radius: 15px;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: center;
+  background-color: #5d6fd3;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid black;
+  height: 9%;
+}
+
+mat-card-title {
+  color: white;
+}
+
+mat-label {
+  color: #959494;
+  font-size: 110%;
+}
+
+mat-card-content {
+  padding-left: 5%;
+}
+
+mat-card-content > .row {
+  margin-top: 4%;
+}
+
+.under-stock {
+  background-color: #ff4949;
+}
+
+.over-stock {
+  background-color: #1c7430;
+}
+
+div > span, div > p {
+  font-family: "Barlow Light", serif;
+  color: #313131;
+  font-size: 130%;
+}
