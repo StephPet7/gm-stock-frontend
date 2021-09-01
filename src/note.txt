@@ -1,0 +1,2 @@
+Commends
+ng build --prod --output-path docs --base-href /angular-material-template/

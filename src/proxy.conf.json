@@ -1,0 +1,11 @@
+{
+  "/api/*": {
+    "target": " https://gm-stock-backend.herokuapp.com/",
+    "secure": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

@@ -1,0 +1,34 @@
+.footer {
+    padding   : 0.9375rem 0;
+    text-align: center;
+    display   : flex;
+    position  : relative;
+    bottom    : 0px;
+    width     : 100%;
+    border-top: solid 1px rgba(0, 0, 0, 0.12);
+
+    ul {
+        margin-bottom: 0;
+        padding      : 0;
+        list-style   : none;
+
+        li {
+            display: inline-block;
+
+            a {
+                color          : inherit;
+                font-weight    : 500;
+                font-size      : 12px;
+                text-transform : uppercase;
+                border-radius  : 3px;
+                text-decoration: none;
+                position       : relative;
+                display        : block;
+            }
+        }
+    }
+
+    .copyright {
+        padding: 15px 0;
+    }
+}
