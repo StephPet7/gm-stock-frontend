@@ -10,7 +10,8 @@
     "test:coverage": "jest --coverage",
     "sonar": "sonar-scanner",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
