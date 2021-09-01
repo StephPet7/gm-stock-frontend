@@ -48,3 +48,6 @@ Thumbs.db
 
 # sonar properties
 sonar-project.properties
+
+#scanner
+.scannerwork
