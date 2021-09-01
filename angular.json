@@ -6,6 +6,9 @@
     "angular-dashboard": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        },
         "@schematics/angular:component": {
           "style": "scss"
         }
@@ -72,8 +75,12 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-dashboard:build:production"
+            },
+            "development": {
+              "browserTarget": "CompeteApp:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
