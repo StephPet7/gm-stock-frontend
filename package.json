@@ -8,12 +8,8 @@
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build",
-    "test": "jest",
-    "test-watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "sonar": "sonar-scanner",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
