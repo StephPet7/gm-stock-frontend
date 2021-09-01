@@ -4,14 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "jest",
     "test-watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "sonar": "sonar-scanner",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
