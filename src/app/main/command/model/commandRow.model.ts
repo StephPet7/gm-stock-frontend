@@ -6,4 +6,5 @@ export class CommandRowModel {
   command: string | CommandModel;
   product: string | ProductModel;
   quantityOrdered: number;
+  remaining: number;
 }

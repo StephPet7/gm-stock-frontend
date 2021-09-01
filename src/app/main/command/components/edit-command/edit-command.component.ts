@@ -146,7 +146,11 @@ export class EditCommandComponent implements OnInit {
           console.log(command);
           this.commandLines.forEach(
             (line)=> {
-              this.commandRowCrud.create({command:command.id, product:line.product.id, quantityOrdered:line.quantityOrdered}).subscribe(
+              this.commandRowCrud.create({
+                command:command.id,
+                product:line.product.id,
+                quantityOrdered:line.quantityOrdered,
+                remaining: line.quantityOrdered}).subscribe(
                 (commandRow:CommandRowModel)=>{
                   console.log(commandRow);
                 },
