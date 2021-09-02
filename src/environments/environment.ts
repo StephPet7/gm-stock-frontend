@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseUrl: 'http://192.168.1.32:8081/api/admin/',
+  baseUrl: 'https://192.168.1.32:8081/api/admin/',
   production: false,
   screenWidth: {lg : 1200, md: 992, sm: 768, xs: 576},
   closeSidebarBelow : 'lg'
