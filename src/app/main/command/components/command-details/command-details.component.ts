@@ -8,6 +8,8 @@ import {LoginService} from "../../../../pages/login/service/login/login.service"
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {CommandRowModel} from "../../model/commandRow.model";
+import {UserModel} from "../../../user/model/user.model";
+import {UserCrudService} from "../../../user/service/crud/user-crud.service";
 
 @Component({
   selector: 'app-command-details',
@@ -26,11 +28,12 @@ export class CommandDetailsComponent implements OnInit {
               private commandCrud: CommandCrudService,
               private commandRowCrud: CommandRowCrudService,
               private productCrud: ProductCrudService,
-              private loginService: LoginService) { }
+              private loginService: LoginService,
+              private userCrud: UserCrudService) { }
 
   ngOnInit(): void {
     this.command = new CommandModel();
-    this.command.command_by = {};
+    this.command.command_by = new UserModel();
     const commandId = this.route.snapshot.params['id'];
     this.loadCommand(commandId);
     this.loadCommandRows(commandId);
@@ -41,13 +44,13 @@ export class CommandDetailsComponent implements OnInit {
     this.commandCrud.getById(id).subscribe(
       (command: CommandModel)=> {
         this.command = command;
-        this.loginService.getUserLogged().subscribe(
-          (user: any)=>{
+        this.userCrud.getById(command.command_by as string).subscribe(
+          (user)=> {
             this.command.command_by = user;
           }
         );
       }
-    )
+    );
   }
 
   // load CommandRows of the command to details

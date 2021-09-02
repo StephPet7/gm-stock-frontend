@@ -14,7 +14,7 @@ export class DeliveryListComponent implements OnInit {
 
   deliveries!: MatTableDataSource<DeliveryModel>;
   pageSizeOption = [5, 10, 15];
-  displayedColumns: string[] = ['deliveryDate', 'received_by', 'totalProductDelivered', 'action'];
+  displayedColumns: string[] = ['deliveryDate', 'received_by', 'action'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private deliveryCrud: DeliveryCrudService,

@@ -9,6 +9,7 @@ import {EditProductComponent} from "./product/components/edit-product/edit-produ
 import {CommandListComponent} from "./command/components/command-list/command-list.component";
 import {EditCommandComponent} from "./command/components/edit-command/edit-command.component";
 import {CommandDetailsComponent} from "./command/components/command-details/command-details.component";
+import {DeliveryListComponent} from "./delivery/components/delivery-list/delivery-list.component";
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'command-list',  component: CommandListComponent },
       { path: 'edit-command',  component: EditCommandComponent},
       { path: 'command-details/:id',  component: CommandDetailsComponent},
+      { path: 'delivery-list',  component: DeliveryListComponent },
     ]
   },
 ];

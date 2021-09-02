@@ -26,6 +26,8 @@ import { DeliveryListComponent } from './delivery/components/delivery-list/deliv
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {CdkTableModule} from "@angular/cdk/table";
+import {MatCardModule} from "@angular/material/card";
+import { DeliveryDetailsComponent } from './delivery/components/delivery-details/delivery-details.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -44,6 +46,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ProductDialogComponent,
     CommandDetailsComponent,
     DeliveryListComponent,
+    DeliveryDetailsComponent,
   ],
 
   imports: [

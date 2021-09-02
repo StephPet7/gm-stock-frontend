@@ -5,6 +5,7 @@ export const MENU_ITEMS: Array<SidebarItem> = [
   { icon: 'home', title: 'Tableau de bord', url: '/main/dashboard' },
   { icon: 'inventory_2', title: 'Produit', url: '/main/product-list' },
   { icon: 'takeout_dining', title: 'Commande', url: '/main/command-list' },
+  { icon: 'local_shipping', title: 'Livraison', url: '/main/delivery-list' },
 ];
 
 @Component({
