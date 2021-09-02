@@ -23,6 +23,9 @@ import { EditCommandComponent } from './command/components/edit-command/edit-com
 import { ProductDialogComponent } from './command/components/edit-command/product-dialog/product-dialog.component';
 import { CommandDetailsComponent } from './command/components/command-details/command-details.component';
 import { DeliveryListComponent } from './delivery/components/delivery-list/delivery-list.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {CdkTableModule} from "@angular/cdk/table";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -51,6 +54,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ClipboardModule,
     FormsModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatTooltipModule,
     MatInputModule,
     MatFormFieldModule,
     ChartsModule,
@@ -58,11 +63,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ColorPickerModule,
     PerfectScrollbarModule
   ],
+  exports: [
+    CdkTableModule,
+  ],
   providers : [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
   ]
 })
 export class MainModule { }

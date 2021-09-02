@@ -1,1 +1,46 @@
-<p>delivery-list works!</p>
+<mat-card>
+  <mat-card-header class="mat-card-header-margin">
+    <mat-card-title><mat-icon class="icon_allign">view_module</mat-icon>Liste des livraisons</mat-card-title>
+  </mat-card-header>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="deliveries" aria-describedby="List of commands">
+
+      <!-- Date Column -->
+      <ng-container matColumnDef="deliveryDate">
+        <th mat-header-cell id="deliveryDate" *matHeaderCellDef> Date de livraison </th>
+        <td mat-cell *matCellDef="let element"> {{element.deliveryDate}} </td>
+      </ng-container>
+
+      <!-- Date Column -->
+      <ng-container matColumnDef="received_by">
+        <th mat-header-cell id="received_by" *matHeaderCellDef>Réceptionniste </th>
+        <td mat-cell *matCellDef="let element"> {{element.received_by|date: 'EEEE, d MMMM y At HH:MM'}} </td>
+      </ng-container>
+
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell id="action" *matHeaderCellDef> Details </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-raised-button class="icon-button mr-2" color="primary" (click)="onDetails(row.id)">
+            <mat-icon>info</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="detailed-row" mat-row *matRowDef="let rowele; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="pageSizeOption"></mat-paginator>
+  </div>
+
+  <div class="row justify-content-end pt-4">
+    <div class="col-12 text-right">
+      <button class="button_margin_top" mat-raised-button color="primary" (click)="onNew()">
+        <mat-icon>add</mat-icon>
+        <span>Nouvelle Commande</span>
+      </button>
+    </div>
+  </div>
+</mat-card>

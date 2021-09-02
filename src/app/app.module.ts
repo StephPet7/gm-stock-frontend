@@ -8,6 +8,9 @@ import { SharedModule } from './shared/shared.module';
 import {MainModule} from "./main/main.module";
 import {PagesModule} from "./pages/pages.module";
 import {HttpClientModule}  from "@angular/common/http";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {CdkTableModule} from "@angular/cdk/table";
 
 @NgModule({
   declarations: [
@@ -19,8 +22,13 @@ import {HttpClientModule}  from "@angular/common/http";
     AppRoutingModule,
     PagesModule,
     BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatTooltipModule,
     SharedModule,
     HttpClientModule
+  ],
+  exports: [
+    CdkTableModule,
   ],
   bootstrap: [AppComponent]
 })
