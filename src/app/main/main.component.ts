@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
   }
 })
 export class MainComponent implements OnInit, OnDestroy{
-  subscription: Subscription;
+  subscription!: Subscription;
   isOpen = true;
   mode: 'side'|'over'|'push' = 'side';
   environment = environment;
@@ -26,16 +26,16 @@ export class MainComponent implements OnInit, OnDestroy{
     this.screenWidthCheck(window.innerWidth);
   }
 
-  onResize(event){
+  onResize(event: { target: { innerWidth: number; }; }){
     this.screenWidthCheck(event.target.innerWidth);
   }
 
   screenWidthCheck(windowWidth: number){
-    if (windowWidth < environment.screenWidth[environment.closeSidebarBelow] && this.isOpen){
+    if (windowWidth < (environment.screenWidth as any)[environment.closeSidebarBelow] && this.isOpen){
       this.mode = 'over';
       this.navService.close();
     }
-    if (windowWidth > environment.screenWidth[environment.closeSidebarBelow] && !this.isOpen){
+    if (windowWidth > (environment.screenWidth as any)[environment.closeSidebarBelow] && !this.isOpen){
       this.mode = 'side';
       this.navService.open();
     }
