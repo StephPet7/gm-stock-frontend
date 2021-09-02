@@ -55,6 +55,9 @@ export class NavbarComponent implements OnInit {
     if (currentUrl.includes('/main/command-details')) {
       return 'Détails Commande';
     }
+    if (currentUrl.includes('/main/edit-delivery')) {
+      return 'Editer une livraison';
+    }
 
     for (let item = 0; item < this.titleList.length; item++){
         if (this.titleList[item].url === currentUrl){

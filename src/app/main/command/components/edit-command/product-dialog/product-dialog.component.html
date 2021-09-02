@@ -24,7 +24,7 @@
       <div class="row justify-content-center">
         <mat-form-field class="col-10">
           <mat-label>Prix Unitaire (en FCFA): </mat-label>
-          <input matInput type="text" formControlName="unitPrice">
+          <input matInput type="number" formControlName="unitPrice" min="0">
           <mat-error>Prix unitaire requis</mat-error>
         </mat-form-field>
       </div>

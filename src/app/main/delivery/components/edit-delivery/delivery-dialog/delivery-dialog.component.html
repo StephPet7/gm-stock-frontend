@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Quantité à livrer</mat-card-title>
+  </mat-card-header>
+
+  <div mat-dialog-content>
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <mat-label>Nom: </mat-label>
+        <span class="offset-1">{{data.product}}</span>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <mat-label>Quantité Commandée: </mat-label>
+        <span class="offset-1">{{data.ordered}}</span>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <mat-form-field>
+          <mat-label>Quantité livrée: </mat-label>
+          <input matInput type="number" min="0" [(ngModel)]="quantityDelivered">
+        </mat-form-field>
+        <p *ngIf="quantityDelivered>data.ordered">Excédent de livraison</p>
+      </div>
+    </div>
+
+    <div mat-dialog-actions class="row pt-4">
+      <div class="col-12 text-right">
+        <button mat-raised-button
+                type="button"
+                color="warn"
+                (click)="onCancel()">Annuler</button>
+        <button type="submit"
+                color="primary"
+                mat-raised-button
+                [mat-dialog-close]="quantityDelivered"
+                [disabled]="quantityDelivered>data.ordered">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</mat-card>

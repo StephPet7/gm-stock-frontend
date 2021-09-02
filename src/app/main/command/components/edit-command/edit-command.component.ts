@@ -89,7 +89,7 @@ export class EditCommandComponent implements OnInit {
 
         let tmp = ((this.commandForm.get('commandLine') as FormArray).controls as FormGroup[])[index].get('product');
         if(tmp != null) tmp.setValue(result);
-       
+
       }
       else this.productActions[index]="SELECT";
     });
@@ -121,15 +121,12 @@ export class EditCommandComponent implements OnInit {
     );
   }
 
-  commandBy(): any{
-    this.loginService.getUserLogged()
-  }
 
   getTotalPrice(): number{
     let total = 0;
     this.commandLines.forEach(
       line=>{
-        total+=line.product.unitPrice! * line.quantityOrdered
+        total+=line.product.unitPrice * line.quantityOrdered
       }
     );
     return total;

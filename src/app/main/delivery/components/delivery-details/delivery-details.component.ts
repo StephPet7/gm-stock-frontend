@@ -44,7 +44,7 @@ export class DeliveryDetailsComponent implements OnInit {
     this.deliveryCrud.getById(id).subscribe(
       (delivery: DeliveryModel)=> {
         this.delivery = delivery;
-        this.userCrud.getById(delivery.received_by as string).subscribe(
+        this.userCrud.retrieve(delivery.received_by as string).subscribe(
           (user)=> {
             this.delivery.received_by = user;
           }

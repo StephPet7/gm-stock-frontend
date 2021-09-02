@@ -10,6 +10,8 @@ import {CommandListComponent} from "./command/components/command-list/command-li
 import {EditCommandComponent} from "./command/components/edit-command/edit-command.component";
 import {CommandDetailsComponent} from "./command/components/command-details/command-details.component";
 import {DeliveryListComponent} from "./delivery/components/delivery-list/delivery-list.component";
+import {DeliveryDetailsComponent} from "./delivery/components/delivery-details/delivery-details.component";
+import {EditDeliveryComponent} from "./delivery/components/edit-delivery/edit-delivery.component";
 
 const routes: Routes = [
   {
@@ -20,11 +22,12 @@ const routes: Routes = [
       { path: 'product-list',  component: ProductListComponent },
       { path: 'product-details/:id',  component: ProductDetailsComponent},
       { path: 'edit-product/:id',  component: EditProductComponent},
-      { path: 'edit-provider/',  component: EditProductComponent},
       { path: 'command-list',  component: CommandListComponent },
       { path: 'edit-command',  component: EditCommandComponent},
       { path: 'command-details/:id',  component: CommandDetailsComponent},
       { path: 'delivery-list',  component: DeliveryListComponent },
+      { path: 'delivery-details/:id',  component: DeliveryDetailsComponent},
+      { path: 'edit-delivery',  component: EditDeliveryComponent},
     ]
   },
 ];

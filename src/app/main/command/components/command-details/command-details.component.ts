@@ -44,7 +44,7 @@ export class CommandDetailsComponent implements OnInit {
     this.commandCrud.getById(id).subscribe(
       (command: CommandModel)=> {
         this.command = command;
-        this.userCrud.getById(command.command_by as string).subscribe(
+        this.userCrud.retrieve(command.command_by as string).subscribe(
           (user)=> {
             this.command.command_by = user;
           }
@@ -57,7 +57,6 @@ export class CommandDetailsComponent implements OnInit {
   loadCommandRows(commandId: string) {
     this.commandRowCrud.getCommandRowsByCommand(commandId).subscribe(
       (commands)=> {
-        console.log(commands);
         this.commandRows = new MatTableDataSource<CommandRowModel>(commands);
         this.commandRows.data.forEach(
           (row:any)=>{

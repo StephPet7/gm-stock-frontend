@@ -5,6 +5,6 @@ export class CommandModel{
   addDate?: Date;
   commandDate?: Date;
   title: string | undefined;
-  command_by: string | UserModel;
+  command_by: any;
   totalPrice: number | undefined;
 }

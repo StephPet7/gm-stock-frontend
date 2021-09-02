@@ -4,6 +4,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {Router} from "@angular/router";
 import {DeliveryModel} from "../../model/delivery.model";
 import {DeliveryCrudService} from "../../service/crud/delivery/delivery-crud.service";
+import {UserCrudService} from "../../../user/service/crud/user-crud.service";
 
 @Component({
   selector: 'app-delivery-list',
@@ -18,7 +19,8 @@ export class DeliveryListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private deliveryCrud: DeliveryCrudService,
-              private router: Router) { }
+              private router: Router,
+              private userCrud: UserCrudService) { }
 
   ngOnInit(): void {
     this.loadDeliveries();
@@ -28,6 +30,15 @@ export class DeliveryListComponent implements OnInit {
     this.deliveryCrud.getAll().subscribe(
       (deliveries: any) => {
         this.deliveries = new MatTableDataSource<DeliveryModel>(deliveries.results);
+        this.deliveries.data.forEach(
+          (delivery)=> {
+            this.userCrud.retrieve(delivery.received_by).subscribe(
+              (user)=>{
+                delivery.received_by = user;
+              }
+            );
+          }
+        )
         this.deliveries.paginator = this.paginator;
         console.log(deliveries.results);
       }
