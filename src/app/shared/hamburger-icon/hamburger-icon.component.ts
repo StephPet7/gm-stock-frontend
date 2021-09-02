@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { environment } from 'environments/environment';
+import { environment } from '../../../environments/environment';
 import { NavigationService } from '../navigation.service';
 
 @Component({
