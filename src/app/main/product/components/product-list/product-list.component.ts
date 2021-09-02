@@ -12,11 +12,11 @@ import {ProductModel} from "../../model/product.model";
 })
 export class ProductListComponent implements OnInit {
 
-  products: MatTableDataSource<ProductModel>;
+  products!: MatTableDataSource<ProductModel>;
   pageSizeOption = [5, 3, 12];
   NB_OF_ELEMENT_TO_PRINT = this.pageSizeOption[0];
   displayedColumns: string[] = ['name', 'description', 'unitPrice', 'action'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
 
   constructor(private router:Router,
@@ -40,14 +40,14 @@ export class ProductListComponent implements OnInit {
     );
   }
 
-  onDetails(product) {
+  onDetails(product: ProductModel) {
     console.log(product.id);
     return this.router.navigate(['/main/product-details', product.id]);
   }
 
   onDelete(product: ProductModel) {
     if(confirm('Are you sure to delete the product '+product.name+ ' ?')) {
-      this.productCrud.delete(product.id).subscribe(
+      this.productCrud.delete(product.id!).subscribe(
         (response)=> {
           this.loadProducts();
         },

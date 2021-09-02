@@ -1,6 +1,0 @@
-projectKey=AVS-PAYMENT-ADMIN
-serverUrl=http://192.168.1.18:9000/sonar
-serverVersion=7.9.5.38598
-dashboardUrl=http://192.168.1.18:9000/sonar/dashboard?id=AVS-PAYMENT-ADMIN
-ceTaskId=AXtkkI_2E_7ELQ1hE5x4
-ceTaskUrl=http://192.168.1.18:9000/sonar/api/ce/task?id=AXtkkI_2E_7ELQ1hE5x4

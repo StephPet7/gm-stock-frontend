@@ -11,7 +11,7 @@ import {ProductCrudService} from "../../../../product/service/crud/product-crud.
 })
 export class ProductDialogComponent implements OnInit{
 
-  productForm: FormGroup;
+  productForm!: FormGroup;
   constructor(private formBuilder: FormBuilder,
               public dialogRef: MatDialogRef<ProductDialogComponent>,
               private productCrud: ProductCrudService) {

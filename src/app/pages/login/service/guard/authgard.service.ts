@@ -28,6 +28,7 @@ export class AuthgardService implements CanActivate{
     else {
       this.loginService.logout();
       this.router.navigate(['/pages/login']);
+      return false;
     }
   }
 }

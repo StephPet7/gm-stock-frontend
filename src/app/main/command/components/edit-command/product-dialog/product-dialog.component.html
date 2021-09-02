@@ -59,7 +59,7 @@
           <button type="submit"
                   color="primary"
                   mat-raised-button
-                  [mat-dialog-close]="productForm.get('name').value"
+                  [mat-dialog-close]="productForm.get('name')!.value"
                   [disabled]="productForm.invalid">Create</button>
         </div>
       </div>

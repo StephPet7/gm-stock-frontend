@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { environment } from 'environments/environment';
+import { environment } from '../../../environments/environment';
 import { NavigationService } from '../navigation.service';
 
 @Component({
@@ -21,8 +21,8 @@ export class HamburgerIconComponent implements OnInit,OnDestroy {
   }
   @Input() invertColor : boolean = false;
   @Output() clicked = new EventEmitter<any>();
-  subscription : Subscription;
-  state : 'ham-closed' | 'ham-opened';
+  subscription! : Subscription;
+  state! : 'ham-closed' | 'ham-opened';
   @Input() standalone : boolean = true;
 
 
@@ -40,10 +40,10 @@ export class HamburgerIconComponent implements OnInit,OnDestroy {
   }
 
   screenWidthCheck(windowWidth : number){
-    if(windowWidth<environment.screenWidth[environment.closeSidebarBelow]){
+    if(windowWidth < (environment.screenWidth as any)[environment.closeSidebarBelow] ){
       this.state = this.reverse ? 'ham-opened' : 'ham-closed';
     }
-    if(windowWidth>environment.screenWidth[environment.closeSidebarBelow]){
+    if(windowWidth> (environment.screenWidth as any)[environment.closeSidebarBelow]){
       this.state = this.reverse ? 'ham-closed' : 'ham-opened';
     }
   }

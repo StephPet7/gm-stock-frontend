@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./letter-icon.component.scss']
 })
 export class LetterIconComponent implements OnInit {
-  _title: string;
+  _title!: string;
   @Input()
   set title(value: string){
     this._title = value;
@@ -17,7 +17,7 @@ export class LetterIconComponent implements OnInit {
     return this._title;
   }
   @Input() size: 'small' | 'normal' | 'large' = 'normal';
-  abbr: string;
+  abbr!: string;
 
   constructor() { }
 

@@ -11,7 +11,7 @@ import {LoginService} from "../../pages/login/service/login/login.service";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  private titleList: any[];
+  private titleList!: any[];
   sticky = false;
 
   constructor(private location: Location,
@@ -61,7 +61,7 @@ export class NavbarComponent implements OnInit {
             return this.titleList[item].title;
         }
         if (this.titleList[item].subMenu && this.titleList[item].subMenu.length > 0){
-          let subMenuItem = this.titleList[item].subMenu.find(sm => sm.url === currentUrl);
+          let subMenuItem = this.titleList[item].subMenu.find((sm: { url: string; }) => sm.url === currentUrl);
           if (subMenuItem){
             return subMenuItem.title;
           }
