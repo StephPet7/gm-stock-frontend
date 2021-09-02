@@ -10,7 +10,7 @@ import {ProductModel} from "../../model/product.model";
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: ProductModel;
+  product!: ProductModel;
 
   constructor(private productCrud: ProductCrudService,
               private router: Router,
@@ -37,7 +37,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   getAlertColor():boolean {
-    return this.product.stockQuantity<this.product.alertThreshold;
+    return this.product.stockQuantity!<this.product.alertThreshold!;
   }
 
   onEdit() {

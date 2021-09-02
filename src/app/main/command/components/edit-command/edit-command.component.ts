@@ -19,10 +19,10 @@ import {Router} from "@angular/router";
 export class EditCommandComponent implements OnInit {
 
   productActions = new Array<'SELECT'|'CREATE'>();
-  commandForm: FormGroup;
-  productsToSelect: Array<ProductModel>;
-  commandLines: Array<{product: ProductModel, quantityOrdered: number}>
-  productDuplication: boolean;
+  commandForm!: FormGroup;
+  productsToSelect!: Array<ProductModel>;
+  commandLines!: Array<{product: ProductModel, quantityOrdered: number}>
+  productDuplication!: boolean;
 
   constructor(private formBuilder: FormBuilder,
               private productCrud: ProductCrudService,
@@ -86,9 +86,10 @@ export class EditCommandComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.loadProductsToSelect();
-        ((this.commandForm.get('commandLine') as FormArray)
-          .controls as FormGroup[])[index]
-          .get('product').setValue(result);
+
+        let tmp = ((this.commandForm.get('commandLine') as FormArray).controls as FormGroup[])[index].get('product');
+        if(tmp != null) tmp.setValue(result);
+       
       }
       else this.productActions[index]="SELECT";
     });
@@ -128,7 +129,7 @@ export class EditCommandComponent implements OnInit {
     let total = 0;
     this.commandLines.forEach(
       line=>{
-        total+=line.product.unitPrice * line.quantityOrdered
+        total+=line.product.unitPrice! * line.quantityOrdered
       }
     );
     return total;
@@ -139,10 +140,10 @@ export class EditCommandComponent implements OnInit {
     this.getCommandLinesFromForm();
     if(!this.productDuplication) {
       this.commandCrud.create({
-        title: this.commandForm.get('title').value,
+        title: this.commandForm.get('title')?.value,
         totalPrice: this.getTotalPrice(),
         command_by:localStorage.getItem('user')}).subscribe(
-        (command:CommandModel) => {
+        (command:CommandModel|any) => {
           console.log(command);
           this.commandLines.forEach(
             (line)=> {

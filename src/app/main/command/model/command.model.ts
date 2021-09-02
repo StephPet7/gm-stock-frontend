@@ -2,7 +2,7 @@ export class CommandModel{
   id?:string;
   addDate?: Date;
   commandDate?: Date;
-  title: string;
+  title: string | undefined;
   command_by: any;
-  totalPrice: number;
+  totalPrice: number | undefined;
 }

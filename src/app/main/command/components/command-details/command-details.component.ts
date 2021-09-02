@@ -16,11 +16,11 @@ import {CommandRowModel} from "../../model/commandRow.model";
 })
 export class CommandDetailsComponent implements OnInit {
 
-  command: CommandModel;
-  commandRows: MatTableDataSource<CommandRowModel>;
+  command!: CommandModel;
+  commandRows!: MatTableDataSource<CommandRowModel>;
   pageSizeOption = [5, 10, 15];
   displayedColumns: string[] = ['product', 'quantityOrdered', 'totalPrice'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private router: Router,
               private route: ActivatedRoute,
               private commandCrud: CommandCrudService,

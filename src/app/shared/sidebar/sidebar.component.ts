@@ -13,7 +13,7 @@ export const MENU_ITEMS: Array<SidebarItem> = [
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  menuItems: Array<SidebarItem>;
+  menuItems!: Array<SidebarItem>;
   @Output() menuSelect = new EventEmitter<any>();
 
   constructor(private location: Location) { }
