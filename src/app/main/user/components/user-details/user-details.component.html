@@ -1,7 +1,7 @@
 <div class="row main-content">
   <mat-card class="example-card col-9 col-sm-6">
     <mat-card-header [ngClass]="{'active': user.is_active, 'unactive': !user.is_active}">
-      <mat-card-title>Informations de l'utilisateur {{user.user_name}}</mat-card-title>
+      <mat-card-title>Informations de l'utilisateur: <span>@{{user.user_name}}</span></mat-card-title>
     </mat-card-header>
 
     <mat-card-content>

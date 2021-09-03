@@ -7,12 +7,12 @@
     </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Redial</span>
+          <mat-icon>portrait</mat-icon>
+          <span id="user-name">@{{user.user_name}}</span>
         </button>
         <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voice mail</span>
+          <mat-icon>email</mat-icon>
+          <span>{{user.email}}</span>
         </button>
         <button mat-menu-item (click)="logout()">
           <mat-icon>power_settings_new</mat-icon>

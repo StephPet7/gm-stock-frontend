@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
   test: Date = new Date();
   footerLinks = [
-    {title: 'AVS Telecom', url: 'javasript:void(0)'},
+    {title: 'Génie Militaire', url: 'javasript:void(0)'},
     {title: 'About Us', url: 'javasript:void(0)'},
     {title: 'Blog', url: 'javasript:void(0)'},
     {title: 'Contact Us', url: 'javasript:void(0)'},

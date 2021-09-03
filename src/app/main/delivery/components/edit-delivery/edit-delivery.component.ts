@@ -137,13 +137,17 @@ export class EditDeliveryComponent implements OnInit {
   }
 
   getQuantityDeliveredFromDetails(id: string): number {
-    if(this.details.length===0) return 0;
-    else return this.details.find((elt)=>elt.commandRowId===id).quantityDelivered;
+    let element = this.details.find((elt) => elt.commandRowId === id);
+    if(!element) return 0;
+    else {
+      return this.details.find((elt) => elt.commandRowId === id).quantityDelivered;
+    }
   }
   //---------------------------------------------------------------------------
 
 
   onEditQuantityToDeliver(index:number, commandRow: any) {
+    console.log(this.getQuantityDeliveredFromDetails(commandRow.id));
     const dialogRef = this.dialog.open(DeliveryDialogComponent, {
       width: '500px',
       data: {

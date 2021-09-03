@@ -1,9 +1,9 @@
 .active {
-  background-color: #fa5151;
+  background-color: #1c7430;
 }
 
 .unactive {
-  background-color: #1c7430;
+  background-color: #fa5151;
 }
 
 .main-content {
@@ -22,11 +22,16 @@ mat-card-header {
   align-items: center;
   border-radius: 15px;
   border: 1px solid black;
-  height: 9%;
+  height: 11%;
 }
 
 mat-card-title {
   color: white;
+  margin-top: 3%;
+}
+
+mat-card-title > span {
+  font-style: italic;
 }
 
 mat-label {
