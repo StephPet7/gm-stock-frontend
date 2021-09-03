@@ -42,4 +42,15 @@ export class CommandListComponent implements OnInit {
     return this.router.navigate(['/main/edit-command']);
   }
 
+  onDelete(command:any) {
+    if(confirm('Supprimer la commande '+ command.title + ' ?')) {
+      this.commandCrud.delete(command.id).subscribe(
+        (command:any)=>{
+          console.log('Suppression de la commande' + command);
+          this.loadCommands();
+        }
+      );
+    }
+  }
+
 }

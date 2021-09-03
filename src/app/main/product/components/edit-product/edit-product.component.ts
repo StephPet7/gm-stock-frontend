@@ -105,4 +105,8 @@ export class EditProductComponent implements OnInit {
       );
     }
   }
+
+  onCancel() {
+    this.router.navigate(['/main/product-details', this.route.snapshot.params['id']]);
+  }
 }

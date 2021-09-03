@@ -20,7 +20,7 @@
               <!-- Product Column -->
               <ng-container matColumnDef="product">
                 <th mat-header-cell id="product" *matHeaderCellDef> Produit </th>
-                <td mat-cell *matCellDef="let element"> {{element.commandRow.product.name}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.commandRow.product!.name}} </td>
               </ng-container>
 
               <!-- Quantity Column -->
@@ -32,7 +32,7 @@
               <!-- Remaining Column -->
               <ng-container matColumnDef="remaining">
                 <th mat-header-cell id="remaining" *matHeaderCellDef> Reste à Livrer </th>
-                <td mat-cell *matCellDef="let element"> {{element.commandRow.remaining}} </td>
+                <td [ngStyle]="{'color': getRemainingColor(element.commandRow.remaining>0)}" mat-cell *matCellDef="let element"> {{element.commandRow.remaining}} </td>
               </ng-container>
 
               <!-- Delivered Column -->
@@ -47,6 +47,15 @@
             <mat-paginator [pageSizeOptions]="pageSizeOption"></mat-paginator>
           </div>
         </mat-card>
+      </div>
+
+      <div class="row justify-content-end pt-4">
+        <div class="col-12 text-left">
+          <button class="button_margin_top" mat-raised-button color="primary" (click)="onBack()">
+            <mat-icon>arrow_back</mat-icon>
+            <span>Retour à la liste</span>
+          </button>
+        </div>
       </div>
     </mat-card-content>
   </mat-card>

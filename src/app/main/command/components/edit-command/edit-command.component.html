@@ -78,7 +78,6 @@
                             type="button"
                             class="button_margin_top mr-2"
                             (click)="removeCommandLine(i)">
-                      <mat-icon>remove</mat-icon>
                       <span>Supprimer l'entrée</span>
                     </button>
                   </div>
@@ -96,7 +95,7 @@
             <button mat-raised-button color="accent" type="reset"
                     class="button_margin_top mr-sm-2 mr-1">Reset</button>
             <button mat-raised-button color="warn" type="button"
-                    class="button_margin_top mr-sm-2 mr-1">Annuler</button>
+                    class="button_margin_top mr-sm-2 mr-1" (click)="onCancel()">Annuler</button>
             <button mat-raised-button color="primary" type="submit"
                     class="button_margin_top" [disabled]="commandForm.invalid">Enregistrer</button>
           </div>

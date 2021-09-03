@@ -55,12 +55,12 @@
           <button mat-raised-button
                   type="button"
                   color="warn"
-                  (click)="onCancel()">Cancel</button>
+                  (click)="onCancel()">Annuler</button>
           <button type="submit"
                   color="primary"
                   mat-raised-button
                   [mat-dialog-close]="productForm.get('name')!.value"
-                  [disabled]="productForm.invalid">Create</button>
+                  [disabled]="productForm.invalid">Créer</button>
         </div>
       </div>
     </form>

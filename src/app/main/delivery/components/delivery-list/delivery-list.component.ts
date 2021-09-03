@@ -53,4 +53,15 @@ export class DeliveryListComponent implements OnInit {
     return this.router.navigate(['/main/edit-delivery']);
   }
 
+  onDelete(delivery: any) {
+    if(confirm('Supprimer la livraison ?')) {
+      this.deliveryCrud.delete(delivery.id).subscribe(
+        (delivery)=> {
+          console.log(delivery);
+          this.loadDeliveries();
+        }
+      );
+    }
+  }
+
 }

@@ -72,4 +72,12 @@ export class CommandDetailsComponent implements OnInit {
     );
   }
 
+  getRemainingColor(isRemain: boolean): string {
+    return (isRemain)?"red":"green";
+  }
+
+  onBack() {
+    this.router.navigate(['/main/command-list']);
+  }
+
 }

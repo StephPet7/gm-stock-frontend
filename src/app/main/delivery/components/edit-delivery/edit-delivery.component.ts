@@ -23,7 +23,7 @@ export class EditDeliveryComponent implements OnInit {
   commands!: FormArray;
   commandToSelect!: Array<CommandModel>;
   selectedCommandIds = [];
-  details = new Array<{index:number, commandRowId:string, quantityDelivered: number}>();
+  details = new Array<{index:number, commandRowId:string, quantityDelivered: number, remaining:number, productId: string}>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private router: Router,
@@ -106,7 +106,7 @@ export class EditDeliveryComponent implements OnInit {
      }
   }
 
-  // Operations on details array
+  // Operations on details array --------------------------------------------------
   existsOnDetails(rowId: string): boolean {
     let value = false;
     this.details.forEach(
@@ -122,11 +122,13 @@ export class EditDeliveryComponent implements OnInit {
     this.details[index].quantityDelivered = quantityDelivered;
   }
 
-  pushOnDetails(index: number, rowId: string, quantityDelivered: number) {
+  pushOnDetails(index: number, rowId: string, remaining:number, quantityDelivered: number, productRowId:string) {
     this.details.push({
       index: index,
       commandRowId: rowId,
-      quantityDelivered: quantityDelivered
+      remaining: remaining,
+      quantityDelivered: quantityDelivered,
+      productId: productRowId
     });
   }
 
@@ -134,16 +136,27 @@ export class EditDeliveryComponent implements OnInit {
     this.details = this.details.filter((elt)=>elt.index!=index);
   }
 
+  getQuantityDeliveredFromDetails(id: string): number {
+    if(this.details.length===0) return 0;
+    else return this.details.find((elt)=>elt.commandRowId===id).quantityDelivered;
+  }
+  //---------------------------------------------------------------------------
+
+
   onEditQuantityToDeliver(index:number, commandRow: any) {
     const dialogRef = this.dialog.open(DeliveryDialogComponent, {
       width: '500px',
-      data: {product: commandRow.product.name, ordered: commandRow.quantityOrdered}
+      data: {
+        product: commandRow.product.name,
+        ordered: commandRow.quantityOrdered,
+        remain: commandRow.remaining,
+        deliver: this.getQuantityDeliveredFromDetails(commandRow.id)}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         if(this.existsOnDetails(commandRow.id)) this.setOnDetails(commandRow.id, result);
-        else this.pushOnDetails(index, commandRow.id, result);
+        else this.pushOnDetails(index, commandRow.id, commandRow.remaining, result, commandRow.product.id);
       }
     });
   }
@@ -153,6 +166,7 @@ export class EditDeliveryComponent implements OnInit {
   }
 
   onSubmit() {
+    // save delivey
     this.deliveryCrud.create({
       received_by: localStorage.getItem('user')
     }).subscribe(
@@ -160,6 +174,7 @@ export class EditDeliveryComponent implements OnInit {
         console.log(delivery);
         this.details.forEach(
           (detail)=> {
+            // save delivery detail
             this.deliveryDetailCrud.create({
               quantityDelivered: detail.quantityDelivered,
               commandRow: detail.commandRowId,
@@ -168,11 +183,28 @@ export class EditDeliveryComponent implements OnInit {
               (detail)=> {
                 console.log(detail)
               }
-            )
-          }
-        )
-      }
-    )
-  }
+            );
+            let remaining = detail.remaining-detail.quantityDelivered;
 
+            // update commandRow remaining
+            this.commandRowCrud.update(detail.commandRowId, {
+              remaining: (remaining<0)?0:remaining}).subscribe(
+                row=>console.log(row)
+            );
+
+            // update product quantity
+            this.productCrud.getProductQuantityById(detail.productId).subscribe(
+              (response: any)=>{
+                this.productCrud.update(detail.productId, {stockQuantity: response.stockQuantity+ detail.quantityDelivered})
+                  .subscribe(
+                    product=>console.log(product)
+                  );
+              }
+            );
+          }
+        );
+        this.router.navigate(['/main/delivery-list']);
+      }
+    );
+  }
 }

@@ -80,9 +80,12 @@
 
       <div class="row pt-4">
         <div class="col-12 text-center">
-          <button mat-raised-button color="primary" type="reset"
+          <button mat-raised-button color="warn" type="button"
+                  class="button_margin_top mr-2 mr-sm-5" (click)="onCancel()">Annuler</button>
+          <button mat-raised-button color="accent" type="reset"
                   class="button_margin_top mr-2 mr-sm-5" (click)="onReset()">Reset</button>
-          <button class="button_margin_top" mat-raised-button color="primary" [disabled]="productForm.invalid">Mettre à jour</button>
+          <button class="button_margin_top" mat-raised-button color="primary" type="submit"
+                  [disabled]="productForm.invalid">Mettre à jour</button>
         </div>
       </div>
     </form>

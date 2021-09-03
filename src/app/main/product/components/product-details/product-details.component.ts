@@ -43,4 +43,8 @@ export class ProductDetailsComponent implements OnInit {
   onEdit() {
     this.router.navigate(['/main/edit-product/', this.product.id]);
   }
+
+  onBack() {
+    this.router.navigate(['/main/product-list']);
+  }
 }

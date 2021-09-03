@@ -18,6 +18,17 @@ export class CommandRowCrudService extends AbstractCrud<CommandRowModel>{
 'api/commandRows/')
   }
 
+  update(id: string, commandRow: any){
+    return this.httpClient.put(environment.baseUrl+ this.updateRoute, commandRow, {
+      headers: {
+        Authorization: 'Bearer '+ localStorage.getItem('access')
+      },
+      params: {
+        id: id
+      }
+    })
+  }
+
   getCommandRowsByCommand(id: string) {
     return this.httpClient.get<any[]>(environment.baseUrl + 'api/commandRow/command/', {
       headers: {

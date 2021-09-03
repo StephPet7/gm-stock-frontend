@@ -10,6 +10,8 @@ import {DeliveryDetailsService} from "../../service/crud/delivery-details/delive
 import {UserCrudService} from "../../../user/service/crud/user-crud.service";
 import {UserModel} from "../../../user/model/user.model";
 import {CommandRowCrudService} from "../../../command/service/crud/commandRow/command-row-crud.service";
+import {CommandRowModel} from "../../../command/model/commandRow.model";
+import {ProductModel} from "../../../product/model/product.model";
 
 @Component({
   selector: 'app-delivery-details',
@@ -68,6 +70,8 @@ export class DeliveryDetailsComponent implements OnInit {
                     commandRow.product = product;
                   }
                 );
+                detail.commandRow = new CommandRowModel();
+                detail.commandRow.product = new ProductModel();
                 detail.commandRow = commandRow;
               }
             )
@@ -76,6 +80,14 @@ export class DeliveryDetailsComponent implements OnInit {
         this.deliveryDetails.paginator = this.paginator;
       }
     );
+  }
+
+  getRemainingColor(isRemain: boolean): string {
+    return (isRemain)?"red":"green";
+  }
+
+  onBack() {
+    this.router.navigate(['/main/delivery-list']);
   }
 
 }

@@ -35,7 +35,7 @@ export class AbstractCrud<T>{
     });
   }
 
-  update(id:string, model: T) {
+  update(id:string, model: any) {
     return this.httpClient.put(environment.baseUrl + this.updateRoute, model, {
       headers: {
         Authorization: 'Bearer '+ localStorage.getItem('access')
@@ -47,9 +47,12 @@ export class AbstractCrud<T>{
   }
 
   delete(id: string) {
-    return this.httpClient.delete(environment.baseUrl + this.deleteRoute+ id, {
+    return this.httpClient.delete(environment.baseUrl + this.deleteRoute, {
       headers: {
         Authorization: 'Bearer '+ localStorage.getItem('access')
+      },
+      params: {
+        id: id
       }
     });
   }

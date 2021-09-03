@@ -167,4 +167,8 @@ export class EditCommandComponent implements OnInit {
     }
   }
 
+  onCancel() {
+    this.router.navigate(['/main/command-list']);
+  }
+
 }
