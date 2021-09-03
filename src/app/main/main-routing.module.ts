@@ -12,6 +12,8 @@ import {CommandDetailsComponent} from "./command/components/command-details/comm
 import {DeliveryListComponent} from "./delivery/components/delivery-list/delivery-list.component";
 import {DeliveryDetailsComponent} from "./delivery/components/delivery-details/delivery-details.component";
 import {EditDeliveryComponent} from "./delivery/components/edit-delivery/edit-delivery.component";
+import {UserListComponent} from "./user/components/user-list/user-list.component";
+import {UserDetailsComponent} from "./user/components/user-details/user-details.component";
 
 const routes: Routes = [
   {
@@ -28,6 +30,8 @@ const routes: Routes = [
       { path: 'delivery-list',  component: DeliveryListComponent },
       { path: 'delivery-details/:id',  component: DeliveryDetailsComponent},
       { path: 'edit-delivery',  component: EditDeliveryComponent},
+      { path: 'user-list',  component: UserListComponent},
+      { path: 'user-details/:id',  component: UserDetailsComponent},
     ]
   },
 ];

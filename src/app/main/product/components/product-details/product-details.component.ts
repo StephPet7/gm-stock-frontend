@@ -27,7 +27,6 @@ export class ProductDetailsComponent implements OnInit {
     else
       this.productCrud.getById(id).subscribe(
         product => {
-          console.log(product);
           this.product = product;
         },
         error => {

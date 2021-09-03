@@ -29,6 +29,8 @@ import {CdkTableModule} from "@angular/cdk/table";
 import { DeliveryDetailsComponent } from './delivery/components/delivery-details/delivery-details.component';
 import { EditDeliveryComponent } from './delivery/components/edit-delivery/edit-delivery.component';
 import { DeliveryDialogComponent } from './delivery/components/edit-delivery/delivery-dialog/delivery-dialog.component';
+import { UserListComponent } from './user/components/user-list/user-list.component';
+import { UserDetailsComponent } from './user/components/user-details/user-details.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -50,6 +52,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DeliveryDetailsComponent,
     EditDeliveryComponent,
     DeliveryDialogComponent,
+    UserListComponent,
+    UserDetailsComponent,
   ],
 
   imports: [

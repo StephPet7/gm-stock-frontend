@@ -52,7 +52,6 @@ export class EditProductComponent implements OnInit {
       },
       error =>  {
         alert('Erreur lors de la lecture du service');
-        console.log(error);
       }
     );
   }
@@ -85,11 +84,9 @@ export class EditProductComponent implements OnInit {
       this.productCrud.create(this.productToSave!).subscribe(
         (response) => {
           this.router.navigate(['/main/edit-command']);
-          console.log(response);
         },
         (error) => {
           alert('Erreur lors de l\'ajout du Produit');
-          console.log(error)
         }
       );
     }
@@ -100,7 +97,6 @@ export class EditProductComponent implements OnInit {
         },
         (error) => {
           alert('Echec de la mise à jour du produit');
-          console.log(error);
         }
       );
     }

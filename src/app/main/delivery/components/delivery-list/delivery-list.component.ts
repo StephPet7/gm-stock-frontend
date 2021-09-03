@@ -40,7 +40,6 @@ export class DeliveryListComponent implements OnInit {
           }
         )
         this.deliveries.paginator = this.paginator;
-        console.log(deliveries.results);
       }
     );
   }
@@ -57,7 +56,6 @@ export class DeliveryListComponent implements OnInit {
     if(confirm('Supprimer la livraison ?')) {
       this.deliveryCrud.delete(delivery.id).subscribe(
         (delivery)=> {
-          console.log(delivery);
           this.loadDeliveries();
         }
       );

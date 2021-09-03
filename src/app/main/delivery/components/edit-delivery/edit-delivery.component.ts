@@ -181,7 +181,6 @@ export class EditDeliveryComponent implements OnInit {
               delivery: delivery.id
             }).subscribe(
               (detail)=> {
-                console.log(detail)
               }
             );
             let remaining = detail.remaining-detail.quantityDelivered;
@@ -189,7 +188,7 @@ export class EditDeliveryComponent implements OnInit {
             // update commandRow remaining
             this.commandRowCrud.update(detail.commandRowId, {
               remaining: (remaining<0)?0:remaining}).subscribe(
-                row=>console.log(row)
+                row=>{}
             );
 
             // update product quantity
@@ -197,7 +196,7 @@ export class EditDeliveryComponent implements OnInit {
               (response: any)=>{
                 this.productCrud.update(detail.productId, {stockQuantity: response.stockQuantity+ detail.quantityDelivered})
                   .subscribe(
-                    product=>console.log(product)
+                    product=>{}
                   );
               }
             );

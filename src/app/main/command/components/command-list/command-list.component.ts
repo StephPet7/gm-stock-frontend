@@ -29,7 +29,6 @@ export class CommandListComponent implements OnInit {
       (commands: any) => {
         this.commands = new MatTableDataSource<CommandModel>(commands.results);
         this.commands.paginator = this.paginator;
-        console.log(commands.results);
       }
     );
   }
@@ -46,7 +45,6 @@ export class CommandListComponent implements OnInit {
     if(confirm('Supprimer la commande '+ command.title + ' ?')) {
       this.commandCrud.delete(command.id).subscribe(
         (command:any)=>{
-          console.log('Suppression de la commande' + command);
           this.loadCommands();
         }
       );

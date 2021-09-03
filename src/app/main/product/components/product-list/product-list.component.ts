@@ -29,19 +29,16 @@ export class ProductListComponent implements OnInit {
   loadProducts() {
     this.productCrud.getAll().subscribe(
       (products: any) => {
-        console.log(products);
         this.products = new MatTableDataSource<ProductModel>(products.results);
         this.products.paginator = this.paginator;
       },
       error => {
         alert('Erreur lors du chargement des produits');
-        console.log(error);
       }
     );
   }
 
   onDetails(product: ProductModel) {
-    console.log(product.id);
     return this.router.navigate(['/main/product-details', product.id]);
   }
 
@@ -53,7 +50,6 @@ export class ProductListComponent implements OnInit {
         },
         error => {
           alert('Echec de la suppression du Produit');
-          console.log(error);
         }
       );
     }

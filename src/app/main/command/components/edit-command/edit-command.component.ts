@@ -141,7 +141,6 @@ export class EditCommandComponent implements OnInit {
         totalPrice: this.getTotalPrice(),
         command_by:localStorage.getItem('user')}).subscribe(
         (command:CommandModel|any) => {
-          console.log(command);
           this.commandLines.forEach(
             (line)=> {
               this.commandRowCrud.create({
@@ -150,10 +149,8 @@ export class EditCommandComponent implements OnInit {
                 quantityOrdered:line.quantityOrdered,
                 remaining: line.quantityOrdered}).subscribe(
                 (commandRow:CommandRowModel)=>{
-                  console.log(commandRow);
                 },
                 error => {
-                  console.log(error);
                 }
               );
             }
@@ -161,7 +158,6 @@ export class EditCommandComponent implements OnInit {
           this.router.navigate(['/main/command-list']);
         },
         error => {
-          console.log(error);
         }
       );
     }
