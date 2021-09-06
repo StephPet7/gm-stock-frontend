@@ -32,21 +32,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('access', res.access);
         localStorage.setItem('refresh', res.refresh);
         localStorage.setItem('access_exp', res.access_exp);
-        this.getLoggedUser();
         this.router.navigate(['/main/dashboard']);
       },
       (error:any) => {
         if(error.status===401) this.notAuthorize = true;
       }
     )
-  }
-
-  getLoggedUser() {
-    this.loginService.getUserLogged().subscribe(
-      (user:any)=>{
-        localStorage.setItem('user', user.id);
-      }
-    );
   }
 
 }

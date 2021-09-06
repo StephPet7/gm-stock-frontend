@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+  <mat-card class="col-9">
+    <mat-card-header class="justify-content-center">
+      <mat-card-title *ngIf="newUser">Créer un nouvel utilisateur</mat-card-title>
+      <mat-card-title *ngIf="!newUser">Mise à jour d'un utilisateur</mat-card-title>
+    </mat-card-header>
+
+    <div>
+      <form [formGroup]="userForm!" (ngSubmit)="onSubmit()">
+        <div class="offset-1 col-sm-10">
+          <div class="row justify-content-center">
+            <mat-form-field class="col-10">
+              <mat-label>Email: </mat-label>
+              <input type="email"  matInput
+                     formControlName="email">
+              <mat-error>Email <strong>requis</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row justify-content-center">
+            <mat-form-field class="col-10">
+              <mat-label>Nom Complet: </mat-label>
+              <input type="text"  matInput
+                     formControlName="name">
+              <mat-error>Nom <strong>requis</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row justify-content-center">
+            <mat-form-field class="col-10">
+              <mat-label>Nom d'utilisateur: </mat-label>
+              <input type="text"  matInput
+                     formControlName="user_name">
+              <mat-error>Nom d'utilisateur <strong>requis</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row justify-content-center">
+            <mat-form-field class="col-10">
+              <mat-label>Rôle: </mat-label>
+              <mat-select formControlName="role">
+                <mat-option [value]="'ADMINISTRATEUR'">ADMINISTRATEUR</mat-option>
+                <mat-option [value]="'SUPERVISEUR'">SUPERVISEUR</mat-option>
+                <mat-option [value]="'MAGASINIER'">MAGASINIER</mat-option>
+              </mat-select>
+              <mat-error> <strong>requis</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-10">
+              <mat-label>Statut: </mat-label>
+              <mat-slide-toggle formControlName="is_active"></mat-slide-toggle>
+            </div>
+          </div>
+
+
+          <div class="row pt-4">
+            <div class="col-12 text-center">
+              <button mat-raised-button color="warn" type="button"
+                      class="button_margin_top mr-2 mr-sm-5" (click)="onCancel()">Annuler</button>
+              <button mat-raised-button color="accent" type="reset"
+                      class="button_margin_top mr-2 mr-sm-5">Reset</button>
+              <button *ngIf="newUser" class="button_margin_top" mat-raised-button color="primary" type="submit"
+                      [disabled]="userForm.invalid">Créer</button>
+              <button *ngIf="!newUser" class="button_margin_top" mat-raised-button color="primary" type="submit"
+                      [disabled]="userForm.invalid">Mettre à jour</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+
+</div>

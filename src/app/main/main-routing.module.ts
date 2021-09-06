@@ -14,6 +14,7 @@ import {DeliveryDetailsComponent} from "./delivery/components/delivery-details/d
 import {EditDeliveryComponent} from "./delivery/components/edit-delivery/edit-delivery.component";
 import {UserListComponent} from "./user/components/user-list/user-list.component";
 import {UserDetailsComponent} from "./user/components/user-details/user-details.component";
+import {EditUserComponent} from "./user/components/edit-user/edit-user.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,8 @@ const routes: Routes = [
       { path: 'edit-delivery',  component: EditDeliveryComponent},
       { path: 'user-list',  component: UserListComponent},
       { path: 'user-details/:id',  component: UserDetailsComponent},
+      { path: 'edit-user/:id',  component: EditUserComponent},
+      { path: 'edit-user',  component: EditUserComponent},
     ]
   },
 ];

@@ -47,6 +47,9 @@ export class CommandDetailsComponent implements OnInit {
         this.userCrud.retrieve(command.command_by as string).subscribe(
           (user)=> {
             this.command.command_by = user;
+          },
+          error => {
+            window.alert('Echec de chargement de la commande');
           }
         );
       }

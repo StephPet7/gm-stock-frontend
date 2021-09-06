@@ -33,6 +33,7 @@ export class EditCommandComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('user'));
     this.commandForm = this.formBuilder.group({
       title: ['', Validators.required],
       commandLine: this.formBuilder.array([])

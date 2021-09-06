@@ -1,5 +1,5 @@
 <div class="row main-content">
-  <mat-card class="example-card col-9 col-sm-6">
+  <mat-card class="example-card col-11 col-sm-8">
     <mat-card-header [ngClass]="{'active': user.is_active, 'unactive': !user.is_active}">
       <mat-card-title>Informations de l'utilisateur: <span>@{{user.user_name}}</span></mat-card-title>
     </mat-card-header>
@@ -26,10 +26,15 @@
       </div>
 
       <div class="row pt-4">
-        <div class="col-12 text-left">
+        <div class="col-12 text-right">
           <button class="button_margin_top mr-5" mat-raised-button color="primary" (click)="onBack()">
             <mat-icon>arrow_back</mat-icon>
             <span>Retour à la liste</span>
+          </button>
+
+          <button class="button_margin_top" mat-raised-button color="primary" (click)="onEdit()">
+            <mat-icon>edit</mat-icon>
+            <span>Éditer</span>
           </button>
         </div>
       </div>

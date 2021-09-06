@@ -31,6 +31,7 @@ import { EditDeliveryComponent } from './delivery/components/edit-delivery/edit-
 import { DeliveryDialogComponent } from './delivery/components/edit-delivery/delivery-dialog/delivery-dialog.component';
 import { UserListComponent } from './user/components/user-list/user-list.component';
 import { UserDetailsComponent } from './user/components/user-details/user-details.component';
+import { EditUserComponent } from './user/components/edit-user/edit-user.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -54,6 +55,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DeliveryDialogComponent,
     UserListComponent,
     UserDetailsComponent,
+    EditUserComponent,
   ],
 
   imports: [

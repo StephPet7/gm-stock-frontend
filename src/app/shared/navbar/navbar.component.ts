@@ -4,7 +4,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { NavigationService } from '../navigation.service';
 import { MENU_ITEMS } from '../sidebar/sidebar.component';
 import {LoginService} from "../../pages/login/service/login/login.service";
-import {UserCrudService} from "../../main/user/service/crud/user-crud.service";
 import {UserModel} from "../../main/user/model/user.model";
 
 @Component({
@@ -15,13 +14,12 @@ import {UserModel} from "../../main/user/model/user.model";
 export class NavbarComponent implements OnInit {
   private titleList!: any[];
   sticky = false;
-  user!: UserModel;
+  user = new UserModel();
 
   constructor(private location: Location,
               private navService: NavigationService,
               private router: Router,
-              private loginService: LoginService,
-              private userCrud: UserCrudService) { }
+              private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.titleList = MENU_ITEMS.map(item => item);
@@ -61,10 +59,16 @@ export class NavbarComponent implements OnInit {
       return 'Détails Commande';
     }
     if (currentUrl.includes('/main/edit-delivery')) {
-      return 'Editer une livraison';
+      return 'Enregistrer une livraison';
+    }
+    if (currentUrl.includes('/main/delivery-details')) {
+      return 'Détails Livraison';
     }
     if (currentUrl.includes('/main/user-details')) {
       return 'Informations d\'utilisateur';
+    }
+    if (currentUrl.includes('/main/edit-user')) {
+      return 'Editer un utilisateur';
     }
 
     for (let item = 0; item < this.titleList.length; item++){
@@ -91,8 +95,9 @@ export class NavbarComponent implements OnInit {
   }
 
   loadLoggedUser() {
-    this.userCrud.retrieve(localStorage.getItem('user')).subscribe(
+    this.loginService.getUserLogged().subscribe(
       (user: any)=> {
+        localStorage.setItem('user', user.id);
         this.user = user;
       }
     )
