@@ -2,6 +2,7 @@ GM-STOCK is a stock management application. It was designed specifically as a pr
 Two git repositories have been used for this application of which the present one is the frontend. The link of the repository for the backend is the following: https://github.com/StephPet7/gm-stock-backend.
 The fronted has been implemented using Angular framework.
 The application has been deployed on Heroku and is accessible through the link: https://gm-stock-frontend.herokuapp.com/. 
-Connection credentials: 
+
+Login credentials: 
   - Email: admin@mail.com
   - Password: admin
