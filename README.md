@@ -3,6 +3,6 @@ Two git repositories have been used for this application of which the present on
 The fronted has been implemented using Angular framework.
 The application has been deployed on Heroku and is accessible through the link: https://gm-stock-frontend.herokuapp.com/. 
 
-Login credentials: 
+Default login credentials: 
   - Email: admin@mail.com
   - Password: admin
