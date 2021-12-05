@@ -71,14 +71,14 @@ export class EditUserComponent implements OnInit {
   }
 
   onSubmit() {
-
     if(this.newUser) {
       this.userCrud.create(this.userForm.value).subscribe(
         (user: any)=> {
           console.log(user);
           this.router.navigate(['/main/user-list']);
         },
-        error => {
+        (error:any) => {
+          console.log(error.error);
           alert('Echec lors de l\'enregistrement de l\'utilisateur');
         }
       );

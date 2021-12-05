@@ -41,4 +41,13 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['/main/edit-user']);
   }
 
+  onDelete(user: any) {
+    if(confirm('Supprimer l\'utilisateur ' + user.user_name +  '?')) {
+      this.userCrud.delete(user.id).subscribe(
+        (user)=> {
+          this.loadUsers();
+        }
+      );
+    }
+  }
 }
